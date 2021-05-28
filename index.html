@@ -67,6 +67,86 @@
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
     // TODO - Make buttons functional
+    // Console Log Demo
+    errorBtns[0].addEventListener('click', () => {
+      console.log('This is a console log demo');
+    });
+
+    // Console Error Demo
+    errorBtns[1].addEventListener('click', () => {
+      console.error('This is a console error demo');
+    });
+
+    // Console Dir
+    errorBtns[2].addEventListener('click', () => {
+      console.dir(document.head);
+    });
+
+
+    // Console dirxml
+    errorBtns[3].addEventListener('click', () => {
+      console.dirxml(document);
+    });
+
+    // Console Group Start
+    errorBtns[4].addEventListener('click', () => {
+      console.group('Buttons to the left of this');
+      console.info('log');
+      console.info('error');
+      console.info('dir');
+      console.info('dirxml');
+    });
+
+    // Console Group End
+    errorBtns[5].addEventListener('click', () => {
+      console.groupEnd('Buttons to the left of this');
+    });
+
+    // Console Table
+    errorBtns[6].addEventListener('click', () => {
+      console.table([
+        {
+          name:'Nick',
+          age:19
+        },
+        {
+          name:'Chris',
+          age:20
+        },
+        {
+          name:'Nikki',
+          age:21
+        }
+        ]);
+    });
+
+    // Start Timer
+    errorBtns[7].addEventListener('click', () => {
+      console.time('time');
+      console.log('Timer started');
+    });
+
+    // End Timer
+    errorBtns[8].addEventListener('click', () => {
+      console.time('time');
+      console.log('Timer ended')
+    });
+
+    // Console Trace
+    errorBtns[9].addEventListener('click', () => {
+      const top = () => { topMiddle(); };
+      const topMiddle = () => { middle(); };
+      const middle = () => { bottomMiddle(); };
+      const bottomMiddle = () => { bottom(); };
+      const bottom = () => { console.trace(); };
+      top();
+    });
+
+    // Trigger a Global Error
+    errorBtns[10].addEventListener('click', () => {
+      console.log(theAnswerFromTheCalculationAbove);
+    });
+
   </script>
 </body>
 </html>
