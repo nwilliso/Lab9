@@ -56,6 +56,12 @@
   </section>
 
   <script>
+    class InputError extends Error {
+      constructor(message) {
+        super(message); // (1)
+        this.name = "InputError"; // (2)
+      }
+    } 
     let calculateBtn = document.querySelector('#calculate');
     calculateBtn.addEventListener('click', () => {
       let output = document.querySelector('output');
@@ -64,7 +70,7 @@
       let operator = document.querySelector('#operator').value;
       try {
         if (firstNum == '' || secondNum == '') {
-          throw new Error('Invalid inputs');
+          throw new InputError('Invalid inputs');
         }
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
       } catch (err) {
@@ -88,7 +94,7 @@
 
     // Console Dir
     errorBtns[2].addEventListener('click', () => {
-      console.dir(document.head);
+      console.dir(errorBtns[0]);
     });
 
 
