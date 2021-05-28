@@ -70,7 +70,7 @@
       let operator = document.querySelector('#operator').value;
       try {
         if (firstNum == '' || secondNum == '') {
-          throw new InputError('Invalid inputs');
+          throw new InputError(err.name + ': Invalid inputs');
         }
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
       } catch (err) {
