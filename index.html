@@ -56,18 +56,23 @@
   </section>
 
   <script>
+
+    // Part 4
     class InputError extends Error {
       constructor(message) {
         super(message); // (1)
         this.name = "InputError"; // (2)
       }
-    } 
+    }
+
     let calculateBtn = document.querySelector('#calculate');
     calculateBtn.addEventListener('click', () => {
       let output = document.querySelector('output');
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
-      let operator = document.querySelector('#operator').value;
+      let operator = document.querySelector('#operator').value; 
+      
+      // Part 3 & 4
       try {
         if (firstNum == '' || secondNum == '') {
           throw new InputError('Invalid inputs');
@@ -80,6 +85,7 @@
       }
     });
 
+    // Part 2
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
     // TODO - Make buttons functional
     // Console Log Demo
@@ -163,6 +169,10 @@
       console.log(theAnswerFromTheCalculationAbove);
     });
 
+    // Part 5
+    window.onerror = (e) => {
+      console.log('An Error has occurred: ' + e);
+    };
   </script>
 </body>
 </html>
