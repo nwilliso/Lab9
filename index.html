@@ -63,9 +63,12 @@
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
       try {
+        if ((!isNaN(firstNum)) || (!isNaN(secondNum))) {
+          throw new Error('Invalid inputs')
+        }
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
       } catch (err) {
-        console.error('Invalid inputs');
+        console.error(err.message);
       } finally {
         console.log('Calculations done')
       }
